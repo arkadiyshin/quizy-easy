@@ -1,9 +1,10 @@
 import './App.css';
+import Start from './components/Start/Start';
 
 function App() {
   return (
     <>
-      <h1>Start page</h1>
+      <Start />
     </>
   );
 }
