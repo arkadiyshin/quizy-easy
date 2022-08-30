@@ -1,14 +1,15 @@
 import { useState, useEffect } from 'react';
 import movieQuestion from '../../api/movieApi';
 import dogQuestion from '../../api/dogApi';
+import OptionButton from './OptionButton/OptionButton';
 import './quiz.css';
 
 function Quiz(props) {
     const movie = false;
     const [question, setQuestion] = useState(null);
-    
+
     useEffect(() => {
-        if(movie) {
+        if (movie) {
             movieQuestion().then((result) => {
                 setQuestion(result);
             });
@@ -17,7 +18,7 @@ function Quiz(props) {
                 setQuestion(result);
             });
         }
-        
+
 
     }, []);
 
@@ -25,13 +26,16 @@ function Quiz(props) {
 
     return (
         <>
-            <h1> {question.question.name} </h1>
+            {false && <h1> {question.question.name} </h1>}
+
             <img src={question.question.image} alt='no-data' />
-            {question.variants.map( (e) => {
-                return <button key={e.name}> {e.name} {e.isCorrect ? '(true)' : '(false)'}</button>
-            })}
+            <div className=''>
+                {question.variants.map((e) => {
+                    return <OptionButton key={e.name} name={e.name} isCorrect={e.isCorrect}/>
+                })}
+            </div>
         </>
     )
 }
-
+//{e.isCorrect ? '(true)' : '(false)'}
 export default Quiz;
