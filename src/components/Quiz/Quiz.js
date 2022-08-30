@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
-import movieQuestion from '../../api/movieApi';
+import movieQuestion from '../../api/movieAPI';
 import dogQuestion from '../../api/dogApi';
-import OptionButton from './OptionButton/OptionButton';
+import flagQuestion from '../../api/flagApi';
+import OptionButton from '../OptionButton/OptionButton';
 import './quiz.css';
 
 function Quiz(props) {
@@ -9,16 +10,19 @@ function Quiz(props) {
     const [question, setQuestion] = useState(null);
 
     useEffect(() => {
-        if (movie) {
-            movieQuestion().then((result) => {
-                setQuestion(result);
-            });
-        } else {
-            dogQuestion().then((result) => {
-                setQuestion(result);
-            });
-        }
+        // if (movie) {
+        //     movieQuestion().then((result) => {
+        //         setQuestion(result);
+        //     });
+        // } else {
+        //     dogQuestion().then((result) => {
+        //         setQuestion(result);
+        //     });
+        // }
 
+        flagQuestion().then((result) => {
+                    setQuestion(result);
+                });
 
     }, []);
 

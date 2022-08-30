@@ -24,29 +24,12 @@ const getTop250Movie = () => {
 
 }
 
-/* return obj (example):
-"id": "nm0000138",
-"image": "https://m.media-amazon.com/images/M/MV5BMjI0MTg3MzI0M15BMl5BanBnXkFtZTcwMzQyODU2Mw@@._V1_Ratio0.7273_AL_.jpg",
-"name": "Leonardo DiCaprio",
-"asCharacter": "Cobb"
-*/
 const getFullCastOfMovie = (movieId) => {
 
     const params = [movieId];
     return fetchData(baseURL, apiKey, ENDPOINT_FULLCAST, params);
 }
 
-/* return obj (example):
-"id": "tt0110912",
-"rank": "8",
-"title": "Pulp Fiction",
-"fullTitle": "Pulp Fiction (1994)",
-"year": "1994",
-"image": "https://m.media-amazon.com/images/M/MV5BNGNhMDIzZTUtNTBlZi00MTRlLWFjM2ItYzViMjE3YzI5MjljXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_Ratio0.6716_AL_.jpg",
-"crew": "Quentin Tarantino (dir.), John Travolta, Uma Thurman",
-"imDbRating": "8.8",
-"imDbRatingCount": "2015015"
-*/
 const getRandomMovie = (top250Movie) => {
     const randomMovie = getRandomInt(MAX_MOVIE_NUMBER);
     return top250Movie.items[randomMovie];
