@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import Timer from '../Timer/Timer';
+import Timer from '../../components/Timer/Timer';
 import movieQuestion from '../../api/movieAPI';
 import dogQuestion from '../../api/dogApi';
 import flagQuestion from '../../api/flagApi';
-import OptionButton from '../OptionButton/OptionButton';
+import OptionButton from '../../components/OptionButton/OptionButton';
 
 import './quiz.css';
 
@@ -48,7 +48,7 @@ function Quiz(props) {
                 })}
             </div>
 
-            <Timer max={10}/>
+            <Timer max={30}/>
         </div>
     )
 }

@@ -1,17 +1,19 @@
-import {useEffect, useState} from 'react';
-import { Circle, Line } from 'rc-progress';
+import { useEffect, useState } from 'react';
+import { Line, Circle } from 'rc-progress';
 import './timer.css';
 
 function Timer(props) {
 
-    const [percent, setPercent] = useState(0);
+    const [percent, setPercent] = useState(100);
 
 
     const step = 100 / props.max;
 
     useEffect(() => {
         const intervalId = setInterval(() => {
-            setPercent((x) => x+step);
+            setPercent((x) => {
+                return percent <= 0 ? 100 : x - step;
+            });
         }, 1000);
 
         return () => {
@@ -21,15 +23,16 @@ function Timer(props) {
 
     return (
         <div className='progress'>
-            <Circle
+            <Line percent={percent} strokeWidth={4} strokeColor={"#108ee9"} />
+            { <Circle
                 percent={percent}
                 strokeWidth={6}
-                strokeLinecap="line"
+                strokeLinecap="round"
                 strokeColor={{
                     '0%': '#108ee9',
                     '100%': '#87d068',
                 }}
-            />
+            /> }
         </div>
     )
 }
