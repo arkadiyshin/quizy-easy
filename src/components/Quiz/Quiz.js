@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
-// import movieQuestion from '../../api/movieAPI';
 import { useParams } from 'react-router-dom';
 import Timer from '../Timer/Timer';
-import movieQuestion from '../../api/movieAPI';
+import movieQuestion from '../../api/MovieAPI';
 import dogQuestion from '../../api/dogApi';
 import flagQuestion from '../../api/flagApi';
 import OptionButton from '../OptionButton/OptionButton';

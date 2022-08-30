@@ -24,7 +24,7 @@ function Timer(props) {
             <Circle
                 percent={percent}
                 strokeWidth={6}
-                strokeLinecap="line"
+                strokeLinecap="Circle"
                 strokeColor={{
                     '0%': '#108ee9',
                     '100%': '#87d068',
