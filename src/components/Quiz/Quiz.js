@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import movieQuestion from '../../api/movieAPI';
+// import movieQuestion from '../../api/movieAPI';
 import dogQuestion from '../../api/dogApi';
 import flagQuestion from '../../api/flagApi';
 import OptionButton from '../OptionButton/OptionButton';
