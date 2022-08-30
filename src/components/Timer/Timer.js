@@ -1,38 +1,42 @@
-import { useEffect, useState } from 'react';
-import { Line, Circle } from 'rc-progress';
+import { useEffect, useState, useContext } from 'react';
+import QuizContext from "../../context/QuizContext";
+import { Line } from 'rc-progress';
 import './timer.css';
 
 function Timer(props) {
 
+    //console.log(`timer didmount`)
     const [percent, setPercent] = useState(100);
-
+    const { questionNumber, setQuestionNumber } = useContext(QuizContext);
 
     const step = 100 / props.max;
 
     useEffect(() => {
+
+        console.log(`timer percent ${percent}`);
         const intervalId = setInterval(() => {
-            setPercent((x) => {
-                return percent <= 0 ? 100 : x - step;
-            });
+            if(percent > 0) {
+                setPercent( percent - step );
+            } else {
+                setQuestionNumber(questionNumber + 1);
+                setPercent( 100 );
+                //console.log(`timer ${questionNumber}`);
+            }
         }, 1000);
 
         return () => {
             clearInterval(intervalId);
         }
-    }, [percent])
+    }, [percent])//
+
+    useEffect(() => {
+        setPercent( 100 );
+    }, [questionNumber])
 
     return (
         <div className='progress'>
-            <Line percent={percent} strokeWidth={4} strokeColor={"#108ee9"} />
-            { <Circle
-                percent={percent}
-                strokeWidth={6}
-                strokeLinecap="round"
-                strokeColor={{
-                    '0%': '#108ee9',
-                    '100%': '#87d068',
-                }}
-            /> }
+            {/* <h5>{percent}</h5> */}
+            <Line percent={percent} strokeWidth={1} strokeColor={"#108ee9"} />
         </div>
     )
 }

@@ -1,10 +1,11 @@
 button {
-    height: 5rem;
+    height: 3rem;
     width: 20rem;
     border-radius: 50px;
     margin: 20px;
     border-color: white;
-    color: white;   
+    color: white;
+    font-size: larger;   
 }
 .option_button {
     background-color: black;
