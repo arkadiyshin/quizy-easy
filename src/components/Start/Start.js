@@ -1,6 +1,6 @@
 import Quiz from '../Quiz/Quiz';
 
-function Start() {
+function Start(props) {
     
 
     return (
