@@ -1,4 +1,13 @@
-img {
-    width: 300px;
-
+.container {
+    width: 60%;
+    margin: 0 auto;
+    text-align: center;
+    align-content: center;
 }
+
+
+img {
+    width: 400px;
+    margin: 0 auto;
+}
+

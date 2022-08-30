@@ -1,3 +1,23 @@
+button {
+    height: 5rem;
+    width: 20rem;
+    border-radius: 50px;
+    margin: 20px;
+    border-color: white;
+    color: white;   
+}
 .option_button {
-    width: 300px;
+    background-color: black;
+}
+
+.option_button_correct {
+    background-color: green;
+}
+
+.option_button_incorrect {
+    background-color: red;
+}
+
+button:disabled {
+    background-color: grey;
 }
