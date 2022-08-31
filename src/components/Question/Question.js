@@ -49,7 +49,6 @@ function Question(props) {
             
             {false && <h1> {question.question.name} </h1>}
 
-            
                 { <h1>{questionNumber} / {numberOfCorrectAnswers} </h1> }
                 <Timer max={10} />
                 <img src={question.question.image} alt='no-data' />
@@ -59,9 +58,6 @@ function Question(props) {
                         return <OptionButton key={e.name} name={e.name} isCorrect={e.isCorrect} />
                     })}
                 </div>
-            
-
-
 
         </div>
     )

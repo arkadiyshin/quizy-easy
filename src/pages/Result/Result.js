@@ -1,11 +1,20 @@
-//import Quiz from '../Quiz/Quiz';
+import { useContext } from 'react';
+import QuizContext from "../../context/QuizContext";
 
 function Result(props) {
-    
+
+    const { setQuestionNumber, numberOfCorrectAnswers, setNumberOfCorrectAnswers } = useContext(QuizContext);
+
+    const startNewGame = () => {
+
+        setQuestionNumber(0);
+        setNumberOfCorrectAnswers(0);
+    }
 
     return (
         <>
-            <h1>You win! Almost...</h1>
+            <h1>Your result {numberOfCorrectAnswers}</h1>
+            <button onClick={startNewGame}>New game</button>
         </>
     )
 }
