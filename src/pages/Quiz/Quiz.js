@@ -1,10 +1,11 @@
 import { useState} from 'react';
 import Question from '../../components/Question/Question';
+import Result from '../Result/Result';
 
 import QuizContext from "../../context/QuizContext";
 
 function Quiz(props) {
-    
+    const numberOfQuestions = 10;
     const [questionNumber, setQuestionNumber] = useState(1);
     const [numberOfCorrectAnswers, setNumberOfCorrectAnswers] = useState(0);
 
@@ -12,7 +13,7 @@ function Quiz(props) {
         
         <>
             <QuizContext.Provider value={{ questionNumber, setQuestionNumber, numberOfCorrectAnswers, setNumberOfCorrectAnswers }}>
-                <Question />
+                {questionNumber <= numberOfQuestions ? <Question />: <Result />}
             </QuizContext.Provider>
         </>
     )
