@@ -20,9 +20,9 @@ function Question(props) {
     const { category } = useParams();
     const [question, setQuestion] = useState(null);
     
-    const { questionNumber, numberOfCorrectAnswers } = useContext(QuizContext);
+    const { questionNumber, numberOfCorrectAnswers, madeChoice, setMadeChoice } = useContext(QuizContext);
 
-    console.log(category);
+    //console.log(category);
 
     useEffect(() => {
         //console.log(`quiz use effect ${questionNumber}`);
@@ -40,6 +40,7 @@ function Question(props) {
                 setQuestion(result);
             });
         }
+        //setMadeChoice(false);
     }, [category, questionNumber]);
 
     if (!question) return null;
@@ -55,7 +56,7 @@ function Question(props) {
 
                 <div>
                     {question.variants.map((e) => {
-                        return <OptionButton key={e.name} name={e.name} isCorrect={e.isCorrect} />
+                        return <OptionButton key={e.name + questionNumber} name={e.name} isCorrect={e.isCorrect} disabled={madeChoice} />
                     })}
                 </div>
 

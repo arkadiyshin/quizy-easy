@@ -13,7 +13,7 @@ function Timer(props) {
 
     useEffect(() => {
 
-        console.log(`timer percent ${percent}`);
+        //console.log(`timer percent ${percent}`);
         const intervalId = setInterval(() => {
             if(percent > 0) {
                 setPercent( percent - step );
