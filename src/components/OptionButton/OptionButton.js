@@ -5,6 +5,7 @@ import './optionButton.css';
 
 function OptionButton(props) {
     const [buttonStatus, setButtonStatus] = useState(0);
+    const [usersChoice, setUsersChoice] = useState(false);
     const { questionNumber, setQuestionNumber, setNumberOfCorrectAnswers, madeChoice, setMadeChoice } = useContext(QuizContext);
 
     useEffect(() => {
@@ -14,6 +15,7 @@ function OptionButton(props) {
 
     const chooseOption = async () => {
 
+        //if (props.isCorrect) setNumberOfCorrectAnswers((x) => x + 1);
         if (props.isCorrect) {
             setButtonStatus(1);
             setNumberOfCorrectAnswers((x) => x + 1);
@@ -21,20 +23,29 @@ function OptionButton(props) {
             setButtonStatus(2);
         }
 
-
-
         setMadeChoice(true);
-
+        setUsersChoice(true);
 
         setTimeout(() => {
             setQuestionNumber(questionNumber + 1);
             console.log(`option button ${questionNumber}`);
-        }, 2000)
+        }, 500)
 
     }
     return (
-        <button disabled={madeChoice && buttonStatus === 0} className={buttonStatus === 0 ? 'option_button' :
-            (buttonStatus === 1 ? 'option_button_correct' : 'option_button_incorrect')}
+        <button disabled={madeChoice}
+            className={buttonStatus === 0 ? 'option_button_active' :
+                (buttonStatus === 1 || props.isCorrect ? 'option_button_correct' : 'option_button_incorrect')}
+            /*  className={() => {
+                //return 'option_button';
+                if (madeChoice && props.isCorrect) {
+                    return 'option_button_correct';
+                } else if (madeChoice && usersChoice && !props.isCorrect) {
+                    return 'option_button_incorrect';
+                } else {
+                    return 'option_button_active'
+                };
+            }}  */
             onClick={chooseOption}>{props.name}</button>
     )
 }

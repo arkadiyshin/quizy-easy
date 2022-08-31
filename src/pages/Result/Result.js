@@ -11,10 +11,15 @@ function Result(props) {
         setNumberOfCorrectAnswers(0);
     }
 
+    const goToTheMainPage = () => {
+        
+    }
+
     return (
         <>
             <h1>Your result {numberOfCorrectAnswers}</h1>
-            <button onClick={startNewGame}>New game</button>
+            <button onClick={startNewGame}>Play again</button>
+            <button onClick={goToTheMainPage}>Main page</button>
         </>
     )
 }

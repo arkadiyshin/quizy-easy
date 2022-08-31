@@ -1,0 +1,9 @@
+
+body > #root > div {
+    height: 100%;
+}
+body {
+    display: flex;
+    background-color: #242432;
+    /* border: 1px solid white; */
+}

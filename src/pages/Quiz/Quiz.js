@@ -4,6 +4,8 @@ import Result from '../Result/Result';
 
 import QuizContext from "../../context/QuizContext";
 
+import './quiz.css';
+
 function Quiz(props) {
     const numberOfQuestions = 10;
     const [questionNumber, setQuestionNumber] = useState(1);
