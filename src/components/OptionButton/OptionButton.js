@@ -5,7 +5,7 @@ import './optionButton.css';
 
 function OptionButton(props) {
     const [ buttonStatus, setButtonStatus] = useState(0);
-    const { questionNumber, setQuestionNumber, numberOfCorrectAnswers, setNumberOfCorrectAnswers } = useContext(QuizContext);
+    const { questionNumber, setQuestionNumber, setNumberOfCorrectAnswers } = useContext(QuizContext);
 
     const chooseOption = () => {
         

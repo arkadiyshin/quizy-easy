@@ -6,7 +6,7 @@ import './timer.css';
 function Timer(props) {
 
     //console.log(`timer didmount`)
-    const [percent, setPercent] = useState(100);
+    const [ percent, setPercent ] = useState(100);
     const { questionNumber, setQuestionNumber } = useContext(QuizContext);
 
     const step = 100 / props.max;
