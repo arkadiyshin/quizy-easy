@@ -8,6 +8,10 @@ const getRandomInt = (max) => {
 
 }
 
+const checkDuplicateById = (array, id) => {
+    return array.some( (e) => e.id === id )
+}
+
 const fetchData = async (baseURL, apiKey='', endpoint='', params = []) => {
 
     let url = `${baseURL}${endpoint}${apiKey}`;
@@ -26,4 +30,4 @@ const fetchData = async (baseURL, apiKey='', endpoint='', params = []) => {
 
 }
 
-export {fetchData as default, getRandomInt, NUMBER_OF_VARIANTS};
+export {fetchData as default, getRandomInt, checkDuplicateById, NUMBER_OF_VARIANTS};
