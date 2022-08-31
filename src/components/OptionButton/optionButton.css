@@ -1,0 +1,24 @@
+button {
+    height: 3rem;
+    width: 20rem;
+    border-radius: 50px;
+    margin: 20px;
+    border-color: white;
+    color: white;
+    font-size: larger;   
+}
+.option_button {
+    background-color: black;
+}
+
+.option_button_correct {
+    background-color: green;
+}
+
+.option_button_incorrect {
+    background-color: red;
+}
+
+button:disabled {
+    background-color: grey;
+}

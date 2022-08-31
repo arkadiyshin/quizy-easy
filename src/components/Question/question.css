@@ -1,0 +1,14 @@
+.container {
+    width: 60%;
+    margin: 0 auto;
+    text-align: center;
+    align-content: center;
+}
+
+
+img {
+    max-width: 300px;
+    max-height: 500px;
+    margin: 1rem auto;
+}
+
