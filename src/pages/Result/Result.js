@@ -1,11 +1,13 @@
 import { useContext } from 'react';
 import QuizContext from "../../context/QuizContext";
+import CategoryContext from "../../context/CategoryContext";
 import './result.css';
 
 
 function Result(props) {
 
     const { setQuestionNumber, numberOfCorrectAnswers, setNumberOfCorrectAnswers } = useContext(QuizContext);
+    const { setCategoryChoosen } = useContext(CategoryContext);
 
     const startNewGame = () => {
 
@@ -15,6 +17,10 @@ function Result(props) {
 
     const goToTheMainPage = () => {
 
+        setQuestionNumber(0);
+        setNumberOfCorrectAnswers(0);
+        setCategoryChoosen(false);
+        
     }
 
     return (
