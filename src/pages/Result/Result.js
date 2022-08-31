@@ -1,5 +1,7 @@
 import { useContext } from 'react';
 import QuizContext from "../../context/QuizContext";
+import './result.css';
+
 
 function Result(props) {
 
@@ -12,15 +14,17 @@ function Result(props) {
     }
 
     const goToTheMainPage = () => {
-        
+
     }
 
     return (
-        <>
-            <h1>Your result {numberOfCorrectAnswers}</h1>
+        <div className='result'>
+            <h1>Your score is {numberOfCorrectAnswers} points</h1>
+            <div className='result_buttons'>
             <button onClick={startNewGame}>Play again</button>
             <button onClick={goToTheMainPage}>Main page</button>
-        </>
+            </div>
+        </div>
     )
 }
 
