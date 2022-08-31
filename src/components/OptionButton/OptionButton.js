@@ -1,31 +1,52 @@
-import { useState, useContext } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import QuizContext from "../../context/QuizContext";
 
 import './optionButton.css';
 
 function OptionButton(props) {
-    const [ buttonStatus, setButtonStatus] = useState(0);
-    const { questionNumber, setQuestionNumber, setNumberOfCorrectAnswers } = useContext(QuizContext);
+    const [buttonStatus, setButtonStatus] = useState(0);
+    const [usersChoice, setUsersChoice] = useState(false);
+    const { questionNumber, setQuestionNumber, setNumberOfCorrectAnswers, madeChoice, setMadeChoice } = useContext(QuizContext);
 
-    const chooseOption = () => {
-        
-        if(props.isCorrect) {
+    useEffect(() => {
+        console.log(`made choice false`);
+        setMadeChoice(false);
+    }, []);
+
+    const chooseOption = async () => {
+
+        //if (props.isCorrect) setNumberOfCorrectAnswers((x) => x + 1);
+        if (props.isCorrect) {
             setButtonStatus(1);
-            setNumberOfCorrectAnswers( (x) => x+1);
+            setNumberOfCorrectAnswers((x) => x + 1);
         } else {
             setButtonStatus(2);
         }
 
-        setTimeout( () => {
+        setMadeChoice(true);
+        setUsersChoice(true);
+
+        setTimeout(() => {
             setQuestionNumber(questionNumber + 1);
             console.log(`option button ${questionNumber}`);
-        },500)
-        
+        }, 500)
+
     }
     return (
-        <button className={buttonStatus === 0 ? 'option_button' : 
-        (buttonStatus === 1 ? 'option_button_correct' : 'option_button_incorrect') } 
-        onClick={chooseOption}>{props.name}</button>
+        <button disabled={madeChoice}
+            className={buttonStatus === 0 ? 'option_button_active' :
+                (buttonStatus === 1 || props.isCorrect ? 'option_button_correct' : 'option_button_incorrect')}
+            /*  className={() => {
+                //return 'option_button';
+                if (madeChoice && props.isCorrect) {
+                    return 'option_button_correct';
+                } else if (madeChoice && usersChoice && !props.isCorrect) {
+                    return 'option_button_incorrect';
+                } else {
+                    return 'option_button_active'
+                };
+            }}  */
+            onClick={chooseOption}>{props.name}</button>
     )
 }
 

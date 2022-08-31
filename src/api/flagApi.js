@@ -1,47 +1,45 @@
-import fetchData, {getRandomInt, NUMBER_OF_VARIANTS} from './dataApi';
+import fetchData, { getRandomInt, checkDuplicateById, NUMBER_OF_VARIANTS } from './dataApi';
 
 
 const baseCountryURL = `https://restcountries.com/v3.1/`;
 const ENDPOINT_COUNTRY_ALL = 'all';
-const MAX_COUNTRY_NUMBER = 250;
+const MAX_ITEMS_NUMBER = 250;
 
-const getAllCountries = () => {
-    
+const getItems = () => {
+
     return fetchData(baseCountryURL, '', ENDPOINT_COUNTRY_ALL);
 
 }
 
-const getRandomCountry = (allCountries) => {
-    
-    const randomCountry = getRandomInt(MAX_COUNTRY_NUMBER);
-    return allCountries[randomCountry];
+const getRandomItem = (items, variants) => {
+
+    let someItem = items[getRandomInt(MAX_ITEMS_NUMBER)];
+    while (checkDuplicateById(variants, someItem.ccn3)) {
+        someItem = items[getRandomInt(MAX_ITEMS_NUMBER)];
+    }
+    return someItem;
 
 }
 
 const getQuestion = async () => {
 
     const result = {};
-    const allCountries = await getAllCountries();
-    const country = await getRandomCountry(allCountries);
 
-    result.question = {name: country.name.common, image: country.flags.png};
+    const items = await getItems();
+    const correcItem = getRandomItem(items, []);
+
+    result.question = { name: correcItem.name.common, image: correcItem.flags.png };
 
     result.variants = [];
+    result.variants.push({ id: correcItem.ccn3, name: correcItem.name.common, isCorrect: true });
 
-    const indexOfCorrectAnswer = getRandomInt(NUMBER_OF_VARIANTS);
-
-    for(let i = 0; i < NUMBER_OF_VARIANTS; i++) {
-        if(i === indexOfCorrectAnswer) {
-            result.variants.push({name: country.name.common, isCorrect: true});
-        } else {
-            const incorretCountry = await getRandomCountry(allCountries);
-            result.variants.push({name: incorretCountry.name.common, isCorrect: false});
-        }
-        
+    for (let i = 0; i < NUMBER_OF_VARIANTS - 1; i++) {
+        const incorretItem = getRandomItem(items, result.variants);
+        const randomIndex = getRandomInt(NUMBER_OF_VARIANTS);
+        result.variants.splice(randomIndex, 0, { id: incorretItem.ccn3, name: incorretItem.name.common, isCorrect: false });
     }
 
     return result;
-
 }
 
 export default getQuestion;

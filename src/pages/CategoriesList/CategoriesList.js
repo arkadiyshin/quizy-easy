@@ -8,7 +8,7 @@ function CategoriesList() {
     return (
         <>
             <Router>
-                {/* <nav>
+               {/*  <nav>
                     <ul>
                         <li><Link to='/quiz/movies'>Movies</Link></li>
                         <li><Link to='/quiz/dogs'>Dogs</Link></li>
