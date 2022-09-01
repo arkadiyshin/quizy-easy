@@ -62,7 +62,7 @@ function Question(props) {
 
             <div>
                 {question.variants.map((e) => {
-                    return <OptionButton key={e.name + questionNumber} name={e.name} isCorrect={e.isCorrect} disabled={madeChoice} />
+                    return <OptionButton key={e.name} name={e.name} isCorrect={e.isCorrect} disabled={madeChoice} />
                 })}
             </div>
 

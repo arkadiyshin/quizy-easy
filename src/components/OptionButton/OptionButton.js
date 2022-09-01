@@ -15,7 +15,6 @@ function OptionButton(props) {
 
     const chooseOption = async () => {
 
-        //if (props.isCorrect) setNumberOfCorrectAnswers((x) => x + 1);
         if (props.isCorrect) {
             setButtonStatus(1);
             setNumberOfCorrectAnswers((x) => x + 1);
@@ -29,23 +28,15 @@ function OptionButton(props) {
         setTimeout(() => {
             setQuestionNumber(questionNumber + 1);
             console.log(`option button ${questionNumber}`);
-        }, 500)
+        }, 1000)
 
     }
     return (
-        <button disabled={madeChoice}
+        <button 
+            //disabled={madeChoice}
             className={buttonStatus === 0 ? 'option_button_active' :
                 (buttonStatus === 1 || props.isCorrect ? 'option_button_correct' : 'option_button_incorrect')}
-            /*  className={() => {
-                //return 'option_button';
-                if (madeChoice && props.isCorrect) {
-                    return 'option_button_correct';
-                } else if (madeChoice && usersChoice && !props.isCorrect) {
-                    return 'option_button_incorrect';
-                } else {
-                    return 'option_button_active'
-                };
-            }}  */
+            
             onClick={chooseOption}>{props.name}</button>
     )
 }

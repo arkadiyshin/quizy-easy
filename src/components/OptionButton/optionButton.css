@@ -12,6 +12,10 @@ button {
     
 }
 
+/* .option_button_disabled {
+    background: linear-gradient(45deg, grey, rgb(73, 72, 72));
+}  */
+
 .option_button_active {
     background: linear-gradient(45deg, #3766D7, #3FB1CC);
 }
@@ -24,6 +28,3 @@ button {
     background: linear-gradient(45deg, #F46791, #FF4C4C);
 }
 
-button:disabled {
-    background-color: grey;
-} 
