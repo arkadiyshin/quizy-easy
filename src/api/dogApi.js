@@ -32,7 +32,7 @@ const getQuestion = async () => {
 
     for(let i = 0; i < NUMBER_OF_VARIANTS-1; i++) {
             const incorretItem = getRandomItem(items, result.variants);
-            const randomIndex = getRandomInt(result.variants.length);
+            const randomIndex = getRandomInt(NUMBER_OF_VARIANTS);
             result.variants.splice(randomIndex, 0, {id: incorretItem.id, name: incorretItem.name, isCorrect: false});
     }
 
