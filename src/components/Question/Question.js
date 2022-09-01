@@ -7,7 +7,7 @@ import QuizContext from "../../context/QuizContext";
 import Timer from '../Timer/Timer';
 import OptionButton from '../OptionButton/OptionButton';
 
-import movieQuestion from '../../api/movieAPI';
+import movieQuestion from '../../api/movieApi';
 import dogQuestion from '../../api/dogApi';
 import flagQuestion from '../../api/flagApi';
 
@@ -59,7 +59,7 @@ function Question(props) {
             <img src={question.question.image} alt='no-data' />
 
             </div>
-            
+
             <div>
                 {question.variants.map((e) => {
                     return <OptionButton key={e.name + questionNumber} name={e.name} isCorrect={e.isCorrect} disabled={madeChoice} />
