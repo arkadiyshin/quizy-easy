@@ -10,6 +10,7 @@ import OptionButton from '../OptionButton/OptionButton';
 import movieQuestion from '../../api/movieApi';
 import dogQuestion from '../../api/dogApi';
 import flagQuestion from '../../api/flagApi';
+import mealQuestion from '../../api/mealApi';
 
 import './question.css';
 
@@ -22,7 +23,7 @@ function Question(props) {
 
     const { questionNumber, numberOfCorrectAnswers, madeChoice, setMadeChoice } = useContext(QuizContext);
 
-    //console.log(category);
+    console.log(category);
 
     useEffect(() => {
         //console.log(`quiz use effect ${questionNumber}`);
@@ -39,6 +40,12 @@ function Question(props) {
             flagQuestion().then((result) => {
                 setQuestion(result);
             });
+        } else if (category === 'meals') {
+            mealQuestion().then((result) => {
+                setQuestion(result);
+                console.log(result)
+            });
+            
         }
         setMadeChoice(false);
     }, [category, questionNumber]);
@@ -48,15 +55,14 @@ function Question(props) {
     return (
         <div className='container'>
 
-        {/*     {false && <h1> {question.question.name} </h1>} */}
             <div>
-            <div className='question_header'>
-                <h1>{questionNumber}</h1> 
-                <Timer max={10} />
-                <h1> {numberOfCorrectAnswers} </h1>
-            </div>
-            
-            <img src={question.question.image} alt='no-data' />
+                <div className='question_header'>
+                    <h1>{questionNumber}</h1> {/* component QuestionNumber */}
+                    <Timer max={10} />
+                    <h1> {numberOfCorrectAnswers} </h1> {/* component CurrentScore */}
+                </div>
+
+                <img src={question.question.image} alt='no-data' />
 
             </div>
 

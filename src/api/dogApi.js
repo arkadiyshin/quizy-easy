@@ -23,6 +23,7 @@ const getQuestion = async () => {
     const result = {};
     
     const items = await getItems();
+    console.log('hi');
     const correcItem = getRandomItem(items, []);
 
     result.question = {name: correcItem.name, image: correcItem.image.url};

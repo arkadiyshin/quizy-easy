@@ -31,6 +31,7 @@ function CategoriesList() {
                     <button onClick={chooseCategory}><Link to='/quiz/dogs'>Dogs</Link></button>
                     <button onClick={chooseCategory}><Link to='/quiz/flags'>Flags</Link></button>
                     <button onClick={chooseCategory}><Link to='/quiz/movies'>Movies</Link></button>
+                    <button onClick={chooseCategory}><Link to='/quiz/meals'>Meals</Link></button>
                 </div>}
 
                 <Routes>
