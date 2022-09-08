@@ -1,14 +1,27 @@
 .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     width: 60%;
-    margin: 0 auto;
+    height: 100%; 
+    margin: auto;
     text-align: center;
     align-content: center;
 }
 
 
 img {
+    
+    max-height: 300px;
     max-width: 300px;
-    max-height: 500px;
     margin: 1rem auto;
 }
 
+h1 {
+    color: white;
+}
+
+.question_header {
+    display: flex;
+    margin: auto;
+}

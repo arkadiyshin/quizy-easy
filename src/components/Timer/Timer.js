@@ -1,6 +1,6 @@
 import { useEffect, useState, useContext } from 'react';
 import QuizContext from "../../context/QuizContext";
-import { Line } from 'rc-progress';
+import { Line , Circle} from 'rc-progress';
 import './timer.css';
 
 function Timer(props) {
@@ -13,7 +13,7 @@ function Timer(props) {
 
     useEffect(() => {
 
-        console.log(`timer percent ${percent}`);
+        //console.log(`timer percent ${percent}`);
         const intervalId = setInterval(() => {
             if(percent > 0) {
                 setPercent( percent - step );
@@ -36,7 +36,8 @@ function Timer(props) {
     return (
         <div className='progress'>
             {/* <h5>{percent}</h5> */}
-            <Line percent={percent} strokeWidth={1} strokeColor={"#108ee9"} />
+            <Line percent={percent} strokeWidth={2} strokeColor={"#108ee9"}></Line>
+                
         </div>
     )
 }
