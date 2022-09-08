@@ -8,8 +8,8 @@ excludes weekdays 2022-09-05
 section MUST section
 Creating User Stories                                 :done,    des01, 2022-08-29, 1d
 User sees photo with 4 answers                        :done,    des02, 2022-08-29, 3d
-When user begin a quiz, he sees bar
-with time (30 sec) for each question                  :done,    des03, 2022-09-01, 1d
+
+When user begin a quiz, he sees bar with time (30 sec) for each question                  :done,    des03, 2022-09-01, 1d
 Creating CSS for Category page                        :active,  des3, 2022-09-07, 2022-09-11
 
 If answer incorrect, user will see correct answer     :active,  des5, 2022-09-09, 1d
