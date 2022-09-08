@@ -3,7 +3,7 @@
 gantt
 dateFormat  YYYY-MM-DD
 title Quizy-Easy
-excludes weekdays 2022-09-05
+excludes weekdays 2022-09-03,2022-09-04,2022-09-10,2022-09-11
 
 section MUST section
 Creating User Stories                                 :done,    des01, 2022-08-29, 1d
