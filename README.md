@@ -2,11 +2,11 @@
 
 gantt
 dateFormat  YYYY-MM-DD
-title Example of how to add a GANTT diagram to README.md using mermaid in GitHub-flavoured markdown
-excludes weekdays 2014-01-10
+title Quizy-Easy
+excludes weekdays 2022-09-05
 
 section A section
-Completed task            :done,    des1, 2014-01-06,2014-01-08
+Creating CSS for Category page            :active,    des1, 2022-09-05, 2022-09-11
 Active task               :active,  des2, 2014-01-09, 3d
 Future task that depends on it              :         des3, after des2, 5d
 Future task2 that depends on future task              :         des4, after des3, 5d
