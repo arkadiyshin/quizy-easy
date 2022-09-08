@@ -7,9 +7,9 @@ excludes weekdays 2022-09-05
 
 section A section
 Creating CSS for Category page            :active,    des1, 2022-09-05, 2022-09-11
-Active task               :active,  des2, 2014-01-09, 3d
-Future task that depends on it              :         des3, after des2, 5d
-Future task2 that depends on future task              :         des4, after des3, 5d
+Active task               :active,  des2, 2022-09-05, 1d
+Future task that depends on it              :         des3, after des2, 1d
+Future task2 that depends on future task              :         des4, after des3, 1d
 
 ```
 
