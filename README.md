@@ -1,3 +1,18 @@
+```mermaid
+
+gantt
+dateFormat  YYYY-MM-DD
+title Example of how to add a GANTT diagram to README.md using mermaid in GitHub-flavoured markdown
+excludes weekdays 2014-01-10
+
+section A section
+Completed task            :done,    des1, 2014-01-06,2014-01-08
+Active task               :active,  des2, 2014-01-09, 3d
+Future task that depends on it              :         des3, after des2, 5d
+Future task2 that depends on future task              :         des4, after des3, 5d
+
+```
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
