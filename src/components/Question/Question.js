@@ -51,14 +51,15 @@ function Question(props) {
     <div className="container">
       <div>
         <div className="question_header">
-          <h1>{questionNumber}</h1> {/* component QuestionNumber */}
+         
           <Timer max={10} />
           <CurrentScore score={numberOfCorrectAnswers}/> {/* component CurrentScore */}
+           <h1>{questionNumber}</h1> {/* component QuestionNumber */}
         </div>
-
+        <h1>{questionNumber}</h1> {/* component QuestionNumber */}
         <img src={question.question.image} alt="no-data" />
       </div>
-
+      <h1>{props.score}</h1>
       <div>
         {question.variants.map((e) => {
           return (
