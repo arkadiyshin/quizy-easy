@@ -1,13 +1,17 @@
-.container {
-    width: 60%;
-    margin: 0 auto;
-    text-align: center;
-    align-content: center;
+* {
+    box-sizing: border-box;
 }
 
-
-img {
-    width: 400px;
-    margin: 0 auto;
+html > body > #root {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
-
+body {
+    
+    background-color: #242432;
+    /* border: 1px solid white; */
+}

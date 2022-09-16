@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import movieQuestion from '../../api/MovieAPI';
@@ -5,51 +6,29 @@ import Timer from '../../components/Timer/Timer';
 import dogQuestion from '../../api/dogApi';
 import flagQuestion from '../../api/flagApi';
 import OptionButton from '../../components/OptionButton/OptionButton';
+=======
+import { useState} from 'react';
+import Question from '../../components/Question/Question';
+import Result from '../Result/Result';
+
+import QuizContext from "../../context/QuizContext";
+>>>>>>> 0ab1cd15563fbc9b307e50bf755ef94b11a1b251
 
 import './quiz.css';
 
 function Quiz(props) {
-
-    const { category } = useParams();
-    const [question, setQuestion] = useState(null);
+    const numberOfQuestions = 10;
     const [questionNumber, setQuestionNumber] = useState(1);
-
-    useEffect(() => {
-        if (category === 'movies') {
-            movieQuestion().then((result) => {
-                setQuestion(result);
-            });
-        } else if (category === 'dogs') {
-            dogQuestion().then((result) => {
-                setQuestion(result);
-            });
-        } else if (category === 'flags') {
-            flagQuestion().then((result) => {
-                setQuestion(result);
-            });
-        }
-
-
-    }, [category]);
-
-    if (!question) return null;
+    const [numberOfCorrectAnswers, setNumberOfCorrectAnswers] = useState(0);
+    const [madeChoice, setMadeChoice] = useState(false);
 
     return (
-        <div className='container'>
-            {false && <h1> {question.question.name} </h1>}
-
-            <h1>{questionNumber}</h1>
-
-            <img src={question.question.image} alt='no-data' />
-
-            <div>
-                {question.variants.map((e) => {
-                    return <OptionButton key={e.name} name={e.name} isCorrect={e.isCorrect} />
-                })}
-            </div>
-
-            <Timer max={30}/>
-        </div>
+        
+        <>
+            <QuizContext.Provider value={{ questionNumber, setQuestionNumber, numberOfCorrectAnswers, setNumberOfCorrectAnswers, madeChoice, setMadeChoice }}>
+                {questionNumber <= numberOfQuestions ? <Question />: <Result />}
+            </QuizContext.Provider>
+        </>
     )
 }
 

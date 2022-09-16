@@ -6,7 +6,7 @@ import fetchData, {getRandomInt, NUMBER_OF_VARIANTS} from './dataApi';
 const baseURL = `https://imdb-api.com/en/API/`;
 const ENDPOINT_TOP250 = `Top250Movies/`;
 const ENDPOINT_FULLCAST = `FullCast/`;
-const MAX_MOVIE_NUMBER = 250;
+const MAX_ITEMS_NUMBER = 250;
 
 const apiKey = 'k_8ix9l2rt';//process.env.REACT_APP_MOVIE_API_KEY;
 
@@ -31,7 +31,7 @@ const getFullCastOfMovie = (movieId) => {
 }
 
 const getRandomMovie = (top250Movie) => {
-    const randomMovie = getRandomInt(MAX_MOVIE_NUMBER);
+    const randomMovie = getRandomInt(MAX_ITEMS_NUMBER);
     return top250Movie.items[randomMovie];
 }
 
